@@ -1,9 +1,16 @@
 package mesmotors;
 
+/**
+ * SoldCars sinifi bir stack yapisidir.
+ */
 public class SoldCars {
 
     Node head = null;
 
+    /**
+     * @param data ismi ile Car nesnesi alinir.
+     *             Stack mantigina göre de en öne eklenir.
+     */
     public void push(Car data) {
         Node node = new Node();
         node.data = data;
@@ -14,14 +21,10 @@ public class SoldCars {
 
     }
 
-    void isEmpty() {
-        if (head == null) {
-            System.out.println("Stack yapisi bostur.");
-        } else {
-            System.out.println("Stack yapisinda eleman var.");
-        }
 
-    }
+    /**
+     * Satilan arabalarin tutuldugu stack yapisinin yazdirilmasi islemini yapar.
+     */
 
     void printSoldCars() {
         Node temp = head;

@@ -1,44 +1,53 @@
 package mesmotors;
 
+/**
+ * CustormerQueue sinifi kuyruk yapisina örnektir.
+ * Node´lar ile olusturulmustur.Node´larin datasi obje tutacak sekilde dizayn
+ * edilmistir.
+ * Bu kisimda Customer nesnesi tutmasi icin typecast yapilmistir.Bu sayede
+ * Node´larin datasi Customer nesnesidir.
+ */
 class CustomerQueue {
     Node front, rear;
- 
-    public CustomerQueue()
-    {
+
+    public CustomerQueue() {
         this.front = this.rear = null;
     }
- 
-    // Method to add an key to the queue.
-    void addCustomer(Customer key)
-    {
- 
-        // Create a new LL node
+
+    /**
+     * @param key
+     *            Kuyruga eklenecek Customer nesnesini parametre alir.
+     */
+
+    void addCustomer(Customer key) {
+
+        // Kontrol node´u olusturulur.
         Node temp = new Node();
-        temp.data=key;
- 
-        // If queue is empty, then new node is front and rear both
+        temp.data = key;
+
+        // Eger kuyruk bos ise Node hem rear hem front olur.
         if (this.rear == null) {
             this.front = this.rear = temp;
             return;
         }
- 
-        // Add the new node at the end of queue and change rear
+
+        // Yeni node kuyrugun sonune eklenir ve rear degistirilir.
         this.rear.next = temp;
         this.rear = temp;
     }
- 
-    // Method to remove an key from queue.
-    void removeCustomer()
-    {
-        // If queue is empty, return NULL.
+
+    // Kuyruktan müsteri silmek icindir.Kuyruk mantigina göre de en öndeki müsteri
+    // silinir.
+    void removeCustomer() {
+        // Kuyruk bos ise null döndürülür cünkü silme islemi yapilamaz.
         if (this.front == null)
             return;
- 
-        // Store previous front and move front one node ahead
+
+        // Front fronttan bir sonrakine tasinir.
         Node temp = this.front;
         this.front = this.front.next;
- 
-        // If front becomes NULL, then change rear also as NULL
+
+        // Front null olursa rear da null yapilir .Cünkü kuyrukta eleman kalmamistir.
         if (this.front == null)
             this.rear = null;
     }
