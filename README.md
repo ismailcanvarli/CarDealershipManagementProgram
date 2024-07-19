@@ -1,2 +1,2 @@
 # CarDealershipManagementProgram
- Java term final project.
+ Java final term project.
